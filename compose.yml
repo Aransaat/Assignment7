@@ -1,3 +1,5 @@
+version: '3'
+
 services:
   web:
     image: nginx
@@ -6,15 +8,16 @@ services:
     volumes:
       - ./html:/usr/share/nginx/html
     command: tail -f /dev/null
-db:
-  image: mysql
-  environment:
-    - MYSQL_ROOT_PASSWORD=mysecretpassword
-    - MYSQL_DATABASE=mydatabase
-  volumes:
-    - ./data:/var/lib/mysql
-  command: yes database
-    
+
+  db:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: mysecretpassword
+      MYSQL_DATABASE: mydatabase
+    volumes:
+      - ./data:/var/lib/mysql
+    command: yes database
+
   users:
     image: my-users-image:v1
-    command: /bin/sh -c "while true; do echo users; done"
+    
