@@ -19,5 +19,5 @@ services:
     command: yes database
 
   users:
-    image: my-users-image:v1
+    image: aransaat/my-users-image:v1
     
